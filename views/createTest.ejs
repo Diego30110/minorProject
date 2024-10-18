@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Test</title>
+    <link rel="stylesheet" href="/styles/createTest.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a Test</h1>
+        <form id="create-test-form" action="/test/createtest" method="POST">
+            <div>
+                <label for="testTitle">Test Title:</label>
+                <input type="text" id="testTitle" name="testTitle" required>
+            </div>
+            <div>
+                <label for="startTime">Test Start Time:</label>
+                <input type="datetime-local" id="startTime" name="startTime" required>
+            </div>
+            <div>
+                <label for="duration">Test Duration (in minutes):</label>
+                <input type="number" id="duration" name="duration" required>
+            </div>
+            <div>
+                <label for="Group">Class or Group no. :</label>
+                <input type="number" id="groupname" name="groupname" required>
+            </div>
+            <div id="questions-container">
+                <h3>Questions</h3>
+                <div class="question">
+                    <label for="question">Question:</label>
+                    <input type="text" name="questions[0][text]" required>
+                    <label for="marks">Marks:</label>
+                    <input type="number" name="questions[0][marks]" required>
+
+                    <label for="option1">Option 1:</label>
+                    <input type="text" name="questions[0][options][0]" required>
+
+                    <label for="option2">Option 2:</label>
+                    <input type="text" name="questions[0][options][1]" required>
+
+                    <label for="option3">Option 3:</label>
+                    <input type="text" name="questions[0][options][2]" required>
+
+                    <label for="option4">Option 4:</label>
+                    <input type="text" name="questions[0][options][3]" required>
+
+                    <label for="correctOption">Correct Option:</label>
+                    <select name="questions[0][correctOption]" required>
+                        <option value="0">Option 1</option>
+                        <option value="1">Option 2</option>
+                        <option value="2">Option 3</option>
+                        <option value="3">Option 4</option>
+                    </select>
+                    <button type="button" class="remove-question">Remove</button>
+                </div>
+            </div>
+            <button type="button" id="add-question">Add Another Question</button>
+            <button type="submit">Create Test</button>
+        </form>
+    </div>
+    <script src="/scripts/createTest.js"></script>
+</body>
+</html>

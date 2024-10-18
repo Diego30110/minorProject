@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="/styles/studentHome.css">
+</head>
+<body>
+    <h1>Welcome, <%= username %>!</h1>
+    <p>This is student dashboard.</p>
+
+    <!-- Button to Show All Tests -->
+    <button onclick="fetchTests()">Show All Tests</button>
+    
+    <!-- Placeholder to display the list of tests -->
+    <div id="testList">
+        <!-- The tests will be inserted here via JavaScript -->
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="/scripts/studentHome.js"></script>
+</body>
+</html>

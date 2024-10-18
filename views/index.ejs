@@ -1,0 +1,82 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <!-- Logo or Title -->
+            <div class="logo">
+                <h1>Study Organizer</h1>
+            </div>
+            <!-- Login and Signup Buttons -->
+            <div id="auth-buttons">
+                <a href="/auth/login" class="btn">Login</a>
+                 
+                <a href="/auth/signup" class="btn">Sign Up</a>
+              
+            </div>
+            <!-- Hamburger Icon -->
+            <div id="hamburger-menu" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- Dropdown Menu -->
+            <div id="dropdown-menu" class="dropdown hidden">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="career.html">Career</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Our Platform</h1>
+            <p>Discover a world of possibilities with us! We are dedicated to providing you with a seamless and
+                enriching experience. Whether you’re looking to enhance your skills, connect with like-minded
+                individuals, or explore new opportunities, you’re in the right place. Our platform is designed to offer
+                valuable resources, insights, and tools to help you achieve your goals. Join us and start your journey
+                towards success today!</p>
+            <button id="learn-more-btn">Learn More</button>
+        </section>
+        <section class="features">
+            <h2>Our Features</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure</h3>
+                    <p>Our platform ensures your data is protected with top-notch encryption and secure authentication
+                        methods, giving you peace of mind while organizing and participating in study groups.</p>
+                </li>
+                <li>
+                    <i class="fas fa-rocket"></i>
+                    <h3>Efficient</h3>
+                    <p>Enjoy a streamlined experience with fast-loading pages and efficient resource management, making
+                        it easy to schedule, manage, and join study groups without delays.</p>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <h3>Collaborative</h3>
+                    <p>Connect with peers seamlessly through interactive features like group chats, shared resources,
+                        and collaborative tools designed to enhance your study group experience.</p>
+                </li>
+            </ul>
+        </section>
+        <section class="call-to-action">
+            <h2>Get Started Today!</h2>
+            <button id="signup-btn">Sign Up</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our Platform</p>
+    </footer>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>

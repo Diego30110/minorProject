@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= exam.title %></title>
+    <link rel="stylesheet" href="/styles/attemptTest.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= exam.title %></h1>
+        
+        <div id="top-right-section">
+            <h2>Time left: <span id="time-left"></span></h2>
+            <% if (exam.questions.length > 0) { %> 
+                <div id="question-numbers">
+                    <h4>Questions:</h4>
+                    <% exam.questions.forEach((_, index) => { %>
+                        <span id="question-status-<%= index %>" class="question-status">Q<%= index + 1 %></span>
+                    <% }) %>
+                </div>
+            <% } %> 
+        </div>
+
+        <div id="questions-container">
+            <% if (exam.questions.length > 0) { %>
+                <% exam.questions.forEach((question, index) => { %>
+                    <div class="question" id="question-<%= index %>" style="display: none;">
+                        <h3>Question <%= index + 1 %>: <%= question.text %></h3>
+                        <% question.options.forEach((option, idx) => { %>
+                            <div>
+                                <input type="radio" name="question-<%= index %>" value="<%= idx %>" class="option">
+                                <label><%= option %></label>
+                            </div>
+                        <% }) %>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No questions available for this exam.</p>
+            <% } %>
+        </div>
+
+        <div class="navigation">
+            <button id="prev-button" style="display: none;">Previous</button>
+            <button id="next-button">Next</button>
+        </div>
+
+        <div id="submit-container">
+            <button id="submit-button">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        const examData = {
+            _id: "<%= exam._id %>",  // Ensure exam ID is passed correctly
+            duration: <%= exam.duration %>,
+            questions: <%- JSON.stringify(exam.questions) %>
+        };
+
+        // Handle window blur and focus events
+        window.addEventListener('blur', function () {
+            // Alert removed as per your previous requests
+        });
+    </script>
+
+    <script src="/scripts/attemptTest.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background-color: #1a73e8;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.signup-form {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a73e8;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="tel"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #060606;
+    border-radius: 5px;
+}
+
+.full-name {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.full-name label {
+    flex-basis: 30%;
+}
+
+.full-name input {
+    width: 100%;
+    flex-basis: 30%;
+    margin-bottom: 0;
+}
+
+.signup-form input[type="submit"] {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form input[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
+.captcha-img {
+    display: block;
+    margin-top: 10px;
+}
+
+#login-link {
+    text-decoration: none;
+    color: #1a73e8;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#login-link:hover {
+    color: #005bb5;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .signup-form {
+        padding: 15px;
+    }
+
+    .full-name {
+        flex-direction: column;
+    }
+
+    .full-name label,
+    .full-name input {
+        flex-basis: 100%;
+        margin-bottom: 15px;
+    }
+}

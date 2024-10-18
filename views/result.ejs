@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Result</title>
+    <link rel="stylesheet" href="/styles/result.css">
+</head>
+<body>
+    <h1>Exam Result for <%= result.studentName %></h1>
+
+    <p>Test Name: <%= test.title %></p>
+    <p>Total Marks: <%= result.totalMarks %></p> <!-- Display total marks -->
+    <p>Score: <%= result.score %></p> <!-- Display score -->
+    <p>Percentage: <%= (result.score / result.totalMarks) * 100 %> %</p>
+
+    <h2>Submitted Answers:</h2>
+    <ul>
+        <% test.questions.forEach((question, index) => { %>
+            <li>
+                <strong>Question:</strong> <%= question.text %><br>
+
+                <!-- Get the index of the selected answer -->
+                <% 
+                    const selectedAnswerIndex = result.answers[index]; // Index of the student's selected option
+                    const selectedAnswerText = question.options[selectedAnswerIndex]; // Fetch the selected option text
+                %>
+                
+                <strong>Your Answer:</strong> <%= selectedAnswerText %><br>
+
+                <!-- Display the correct answer text using correctOption -->
+                <strong>Correct Answer:</strong> <%= question.options[question.correctOption] %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

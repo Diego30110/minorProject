@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Instructions</title>
+    <link rel="stylesheet" href="/styles/attemptTest.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Instructions for <%= exam.title %></h1>
+        <p><strong>Exam Start Time:</strong> <%= exam.startTime.toString() %></p>
+        <p>Please read the following instructions carefully:</p>
+        <ul>
+            <li>You cannot switch tabs during the exam.</li>
+            <li>Your exam will be auto-saved and submitted once the time is up or the window is closed.</li>
+            <li>Make sure you are in a quiet environment.</li>
+        </ul>
+        <div>
+            <input type="checkbox" id="instructions-checkbox">
+            <label for="instructions-checkbox">I have read all the instructions.</label>
+        </div>
+        <button id="start-exam-btn" disabled>Start Exam</button>
+    </div>
+    <!-- <script src="/scripts/instruction.js"></script> -->
+
+    <script>
+        const checkbox = document.getElementById('instructions-checkbox');
+const startExamBtn = document.getElementById('start-exam-btn');
+
+// Enable the button if the checkbox is checked
+checkbox.addEventListener('change', function() {
+    startExamBtn.disabled = !this.checked;
+});
+
+startExamBtn.addEventListener('click', function () {
+    const currentTime = new Date().getTime();
+    const examStartTime = new Date("<%= exam.startTime %>").getTime();
+
+    if (currentTime < examStartTime) {
+        alert('The exam has not started yet.');
+    } else {
+        // Open the exam page in a new window
+        const examUrl = `/exam/<%= exam._id %>`;  // Ensure you're opening the correct exam page
+        const examWindow = window.open(examUrl, 'ExamWindow', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no,resizable=no,scrollbars=no');
+
+        if (examWindow) {
+            // Focus on the new exam window and check for fullscreen capability
+            examWindow.focus();
+            
+            if (examWindow.document.documentElement.requestFullscreen) {
+                examWindow.document.documentElement.requestFullscreen();
+            }
+            
+            // Optionally, you can add more focus checks for when the user switches tabs (to discourage tab switching)
+        } else {
+            alert('Please allow popups for this website.');
+        }
+    }
+});
+    </script>
+     
+</body>
+</html>
