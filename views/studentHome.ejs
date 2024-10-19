@@ -2,24 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-    <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="/styles/studentHome.css">
-</head>
-<body>
-    <h1>Welcome, <%= username %>!</h1>
-    <p>This is student dashboard.</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Teacher Dashboard</title>
 
-    <!-- Button to Show All Tests -->
-    <button onclick="fetchTests()">Show All Tests</button>
-    
-    <!-- Placeholder to display the list of tests -->
-    <div id="testList">
-        <!-- The tests will be inserted here via JavaScript -->
+    <style>
+        /* In-line CSS for simplicity */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .details {
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            text-decoration: none;
+            background-color: #008CBA;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #005f73;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f39c12;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d35400;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome, <span id="teacherName">Teacher</span>!</h1>
+    </header>
+
+    <div class="dashboard">
+        <div class="details" id="teacherDetails">
+            <h2>Your Details</h2>
+            <p>Fetching your details...</p>
+        </div>
+
+        <div class="actions">
+            <a href="createTest" class="btn">Create Test</a>
+            <button onclick="refreshDetails()">Refresh Details</button>
+        </div>
     </div>
 
-    <!-- Link to the external JavaScript file -->
-    <script src="/scripts/studentHome.js"></script>
+    <footer>
+        <p>&copy; 2024 Teacher Dashboard. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Sample teacher data (simulating API data)
+        const teacher = {
+            name: "John Doe",
+            email: "johndoe@example.com",
+            subject: "Mathematics",
+            experience: "8 years",
+        };
+
+        // Function to load teacher details on page load
+        function loadTeacherDetails() {
+            const nameElement = document.getElementById('teacherName');
+            const detailsElement = document.getElementById('teacherDetails');
+
+            // Display the teacher's name and details
+            nameElement.innerText = teacher.name;
+            detailsElement.innerHTML = `
+                <h2>Your Details</h2>
+                <p><strong>Email:</strong> ${teacher.email}</p>
+                <p><strong>Subject:</strong> ${teacher.subject}</p>
+                <p><strong>Experience:</strong> ${teacher.experience}</p>
+            `;
+        }
+
+        // Function to refresh details (reloading the same data for now)
+        function refreshDetails() {
+            alert('Refreshing teacher details...');
+            loadTeacherDetails(); // Refresh by calling the same function
+        }
+
+        // Load teacher details when the page loads
+        window.onload = loadTeacherDetails;
+    </script>
 </body>
 </html>
+
